@@ -5,7 +5,7 @@ data class AnimeResponse(
 )
 
 data class Anime(
-    val mal_id: Int,
+    val malid: Int,
     val title: String,
     val type: String?,
     val episodes: Int?,

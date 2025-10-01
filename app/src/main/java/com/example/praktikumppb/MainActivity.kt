@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Movie
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -30,15 +31,15 @@ class MainActivity : ComponentActivity() {
         setContent {
             PraktikumPPBTheme {
                 AnimeApp()
-                }
             }
         }
     }
+}
 
 @Composable
 fun AnimeApp() {
     val navController = rememberNavController()
-    val items = listOf(Screen.Anime, Screen.About)
+    val items = listOf(Screen.Anime, Screen.About, Screen.Character) // Tambahkan Screen.Character di sini
 
     Scaffold(
         bottomBar = {
@@ -52,6 +53,7 @@ fun AnimeApp() {
                             when (screen) {
                                 Screen.Anime -> Icon(Icons.Default.Movie, contentDescription = "Anime")
                                 Screen.About -> Icon(Icons.Default.Info, contentDescription = "About")
+                                Screen.Character -> Icon(Icons.Default.Person, contentDescription = "Character") // Tambahkan ini
                             }
                         },
                         label = { Text(screen.title) },
@@ -75,11 +77,14 @@ fun AnimeApp() {
             startDestination = Screen.Anime.route,
             modifier = Modifier.padding(innerPadding)
         ) {
-            composable("anime") {
+            composable(Screen.Anime.route) {
                 AnimeListScreen()
             }
             composable(Screen.About.route) {
                 AboutScreen()
+            }
+            composable(Screen.Character.route) { // Tambahkan navigasi ke CharacterListScreen
+                CharacterListScreen()
             }
         }
     }

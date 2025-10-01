@@ -69,6 +69,17 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
     implementation(libs.androidx.material.icons.extended)
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
+    implementation("io.coil-kt:coil-compose:2.3.0")
+    implementation("com.squareup.retrofit2:retrofit:2.10.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.10.0")
+    implementation("androidx.compose.foundation:foundation:1.5.0")
+    implementation("androidx.compose.ui:ui:1.5.0")
+// Required for Modifier support
+    implementation("androidx.compose.runtime:runtime:1.5.0")
+    implementation("androidx.navigation:navigation-compose:2.7.0")
+// Required for navigation
+
 
     // Image
     implementation(libs.coil.compose)
